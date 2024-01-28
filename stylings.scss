@@ -1,0 +1,11 @@
+@import "template.scss";
+
+.heading-large {
+  @include heading-large;
+}
+.heading-medium {
+  @include heading-medium;
+}
+.body {
+  @include body;
+}
