@@ -249,7 +249,7 @@ input {
   justify-content: center;
   align-items: center;
   background: #a4ffaf;
-  border: none;
+  border: 0.1rem solid #18171f;
   margin-top: 0.2rem;
   padding: 1rem 0;
 }
@@ -261,7 +261,14 @@ input {
 
 #generate:hover {
   cursor: pointer;
-  background: rgba(164, 255, 175, 0.8117647059);
+  background: transparent;
+  border: 0.1rem solid #a4ffaf;
+}
+#generate:hover p {
+  color: #a4ffaf;
+}
+#generate:hover svg path {
+  fill: #a4ffaf;
 }
 
 /*# sourceMappingURL=main.css.map */

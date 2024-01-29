@@ -202,7 +202,7 @@ input {
   justify-content: center;
   align-items: center;
   background: $green;
-  border: none;
+  border: 0.1rem solid $black;
 
   margin-top: 0.2rem;
   padding: 1rem 0;
@@ -213,5 +213,14 @@ input {
 }
 #generate:hover {
   cursor: pointer;
-  background: #a4ffafcf;
+
+  p {
+    color: $green;
+  }
+  svg path {
+    fill: $green;
+  }
+
+  background: transparent;
+  border: 0.1rem solid $green;
 }
