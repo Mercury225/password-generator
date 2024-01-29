@@ -62,7 +62,7 @@ body {
   flex-direction: row;
   width: 30%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-family: "JetBrains Mono", monospace;
   font-size: 1.125rem;
   line-height: 1.4375rem;
@@ -72,6 +72,30 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.copied-text,
+.img-green {
+  display: none;
+}
+
+.img-green:hover {
+  display: block;
+  cursor: pointer;
+}
+
+.img-empty {
+  display: block;
+}
+.img-empty path {
+  fill: #e6e5ea;
+}
+.img-empty:hover {
+  display: none;
+  cursor: pointer;
+}
+.img-empty:hover ~ .img-green {
+  display: block;
 }
 
 /* second box */

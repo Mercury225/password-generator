@@ -37,12 +37,35 @@ body {
   @include flex-row;
   width: 30%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   @include body;
 }
 .password-box {
   @include flex-row;
   justify-content: space-between;
+}
+.copied-text,
+.img-green {
+  display: none;
+}
+.img-green:hover {
+  display: block;
+  cursor: pointer;
+}
+.img-empty {
+  display: block;
+
+  path {
+    fill: $light-grey;
+  }
+
+  &:hover {
+    display: none;
+    cursor: pointer;
+    ~ .img-green {
+      display: block;
+    }
+  }
 }
 
 /* second box */
