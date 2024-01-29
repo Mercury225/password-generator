@@ -11,7 +11,23 @@ $orange: #fb7c58;
 $yellow: #f8cd65;
 
 $font: "JetBrains Mono", monospace;
-
+@mixin body {
+  font-family: $font;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $light-grey;
+  @include body;
+  font-size: 16px;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
 /* fonts */
 @mixin heading-large {
   font-family: $font;
@@ -23,8 +39,12 @@ $font: "JetBrains Mono", monospace;
   font-size: 1.5rem;
   line-height: 1.9375rem;
 }
-@mixin body {
-  font-family: $font;
-  font-size: 1.125rem;
-  line-height: 1.4375rem;
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }

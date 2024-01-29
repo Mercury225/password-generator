@@ -1,29 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Password generator app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  Password Generator
+    <link rel="stylesheet" href="main.css" />
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <header class="title">Password Generator</header>
+    <section class="password-box grey-box">
+      <h2 class="password-input">P4$5W0rD!</h2>
+      <div class="image-collection">
+        <span class="copied-text">COPIED</span
+        ><img
+          src="./assets/images/icon-copy.svg"
+          alt="empty copy button"
+          class="img-empty"
+        />
+        <img
+          src="./assets/images/icon-copy.svg"
+          alt="copy button highlighted in green"
+          class="img-green"
+        />
+      </div>
+    </section>
+    <section class="form-fill-box grey-box">
+      <div class="character-length">
+        <label for="length-number">Character Length</label>
+        <span id="length-value"></span>
+      </div>
+      <input type="range" id="length-number" min="4" max="15" />
+      <div class="checkboxes">
+        <input type="checkbox" id="uppercase" checked="checked" />
+        <span class="checkmark"></span>
+        <label for="uppercase">Include Uppercase Letters</label>
+      </div>
+      <div class="checkboxes">
+        <input type="checkbox" id="lowercase" checked="checked" />
+        <span class="checkmark"></span>
+        <label for="lowercase">Include Lowercase Letters</label>
+      </div>
+      <div class="checkboxes">
+        <input type="checkbox" id="numbers" checked="checked" />
+        <span class="checkmark"></span>
+        <label for="numbers">Include Numbers</label>
+      </div>
+      <div class="checkboxes">
+        <input type="checkbox" id="symbols" checked="checked" />
+        <span class="checkmark"></span>
+        <label for="symbols">Include Symbols</label>
+      </div>
 
-  P4$5W0rD!
+      <div class="strength-meter">
+        <div class="progress-bar-cover">
+          <h3>Strength</h3>
+          <div class="progress-bar">
+            <h3 class="description">TOO WEAK!</h3>
+            <div class="progress-bar-too-weak">
+              <div class="line too-weak"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="progress-bar-cover">
+          <h3>Strength</h3>
+          <div class="progress-bar">
+            <h3 class="description">WEAK</h3>
+            <div class="progress-bar-weak">
+              <div class="line weak"></div>
+              <div class="line weak"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="progress-bar-cover">
+          <h3>Strength</h3>
+          <div class="progress-bar">
+            <h3 class="description">MEDIUM</h3>
+            <div class="progress-bar-medium">
+              <div class="line medium"></div>
+              <div class="line medium"></div>
+              <div class="line medium"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="progress-bar-cover">
+          <h3>Strength</h3>
+          <div class="progress-bar">
+            <h3 class="description">STRONG</h3>
+            <div class="progress-bar-strong">
+              <div class="line strong"></div>
+              <div class="line strong"></div>
+              <div class="line strong"></div>
+              <div class="line strong"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  Character Length
+      <button id="generate" type="button">
+        <p>Generate</p>
 
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
-
-  Strength
-
-  Generate
-
-</body>
+        <img src="./assets/images/icon-arrow-right.svg" alt="right arrow" />
+      </button>
+    </section>
+  </body>
 </html>
