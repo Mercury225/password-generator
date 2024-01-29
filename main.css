@@ -122,23 +122,55 @@ input {
   width: 45%;
 }
 
-.checkboxes > input {
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkboxes label {
+  padding-left: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.checkboxes label input {
   position: absolute;
   opacity: 0;
   height: 0;
   width: 0;
 }
+.checkboxes label input:checked + .checkmark {
+  background: #a4ffaf;
+}
+.checkboxes label input:checked + .checkmark::after {
+  display: block;
+}
 
 .checkmark {
   position: absolute;
+  left: 0;
   width: 1rem;
   height: 1rem;
   background: transparent;
-  border: #e6e5ea;
+  border: 0.1rem solid #e6e5ea;
 }
-
-.checkboxes > input:checked ~ .checkmark {
-  background: #a4ffaf;
+.checkmark:hover {
+  cursor: pointer;
+}
+.checkmark::after {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-right: 0.1rem solid #18171f;
+  border-bottom: 0.1rem solid #18171f;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 0.2rem;
+  height: 0.5rem;
+  background: transparent;
 }
 
 .description {
@@ -201,6 +233,11 @@ input {
 #generate p {
   margin-right: 1rem;
   color: #18171f;
+}
+
+#generate:hover {
+  cursor: pointer;
+  background: rgba(164, 255, 175, 0.8117647059);
 }
 
 /*# sourceMappingURL=main.css.map */
