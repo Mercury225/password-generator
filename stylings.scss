@@ -81,6 +81,11 @@ input {
   margin-bottom: 0;
 }
 
+#length {
+  &-value {
+    font-size: 1.4rem;
+  }
+}
 #length-number {
   accent-color: $green;
 }
@@ -180,6 +185,7 @@ input {
 
 .character-length {
   @include flex-row;
+  justify-content: space-between;
 }
 .too-weak {
   background-color: $red;

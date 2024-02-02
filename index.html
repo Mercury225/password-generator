@@ -42,7 +42,7 @@
     <section class="form-fill-box grey-box">
       <div class="character-length">
         <label for="length-number">Character Length</label>
-        <span id="length-value"></span>
+        <span id="length-value">10</span>
       </div>
       <input type="range" id="length-number" min="4" max="15" />
       <div class="checkboxes">
@@ -71,7 +71,7 @@
       </div>
 
       <div class="strength-meter">
-        <div class="progress-bar-cover">
+        <div class="progress-bar-cover" id="too-weak">
           <h3>Strength</h3>
           <div class="progress-bar">
             <h3 class="description">TOO WEAK!</h3>
@@ -83,7 +83,7 @@
             </div>
           </div>
         </div>
-        <div class="progress-bar-cover">
+        <div class="progress-bar-cover" id="weak">
           <h3>Strength</h3>
           <div class="progress-bar">
             <h3 class="description">WEAK</h3>
@@ -95,7 +95,7 @@
             </div>
           </div>
         </div>
-        <div class="progress-bar-cover">
+        <div class="progress-bar-cover" id="medium">
           <h3>Strength</h3>
           <div class="progress-bar">
             <h3 class="description">MEDIUM</h3>
@@ -107,7 +107,7 @@
             </div>
           </div>
         </div>
-        <div class="progress-bar-cover">
+        <div class="progress-bar-cover" id="strong">
           <h3>Strength</h3>
           <div class="progress-bar">
             <h3 class="description">STRONG</h3>
@@ -124,8 +124,15 @@
       <button id="generate" type="button">
         <p>Generate</p>
 
-        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
+        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#24232C"
+            d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+          />
+        </svg>
       </button>
     </section>
+
+    <script src="main.js"></script>
   </body>
 </html>

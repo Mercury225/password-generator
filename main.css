@@ -113,6 +113,10 @@ input {
   margin-bottom: 0;
 }
 
+#length-value {
+  font-size: 1.4rem;
+}
+
 #length-number {
   accent-color: #a4ffaf;
 }
@@ -221,6 +225,7 @@ input {
 .character-length {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .too-weak {
