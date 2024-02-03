@@ -15,8 +15,9 @@ const getRangeInput = document.getElementById("length-number"),
   getStrong = document.getElementById("strong"),
   emptyCopy = document.getElementsByClassName("img-empty")[0],
   greenCopy = document.getElementsByClassName("img-green")[0],
-  checkedText = document.getElementsByClassName("copied-text")[0];
-
+  checkedText = document.getElementsByClassName("copied-text")[0],
+  customText = document.getElementById("customText");
+console.log(customText);
 const allLetters = [
   "a",
   "b",
@@ -50,6 +51,7 @@ const allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const allSymbols = ["!", "£", "$", "%", "^", "&", "*", "(", ")", "@", "/"];
 
+let addedText;
 //event listeners
 getRangeInput.addEventListener("change", (e) => {
   getLengthValue.innerHTML = e.target.value;
@@ -73,6 +75,9 @@ greenCopy.addEventListener("click", async () => {
   await navigator.clipboard.writeText(passwordInput.innerHTML);
 });
 
+customText.addEventListener("keyup", (e) => {
+  addedText = e.target.value;
+});
 //using forEach for all checkboxes to change control false > true
 
 const checkBoxes = [
@@ -207,7 +212,7 @@ const stepTwo = (password) => {
     }
   }
 
-  passwordInput.innerHTML = password.join("");
+  passwordInput.innerHTML = addedText + password.join("");
   return "completed";
 };
 

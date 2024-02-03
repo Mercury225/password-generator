@@ -33,11 +33,6 @@ body {
     margin-bottom: 0;
   }
 }
-@media only screen and (max-width: 450px) {
-  .grey-box {
-    width: 21rem;
-  }
-}
 
 .image-collection {
   @include flex-row;
@@ -240,4 +235,24 @@ input {
 
   background: transparent;
   border: 0.1rem solid $green;
+}
+.enterCustomValue {
+  label {
+    font-size: 1rem;
+  }
+  input {
+    margin-top: 0.4rem;
+    color: $black;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .grey-box {
+    width: 21rem;
+  }
+  .description {
+    width: 4rem;
+  }
+  .progress-bar {
+    width: 50%;
+  }
 }
