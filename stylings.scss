@@ -48,24 +48,27 @@ body {
 .img-green {
   display: none;
 }
+.copied-text {
+  margin-right: 0.4rem;
+}
 .img-green:hover {
   display: block;
   cursor: pointer;
 }
 .img-empty {
-  display: block;
+  // display: block;
 
   path {
     fill: $light-grey;
   }
 
-  &:hover {
-    display: none;
-    cursor: pointer;
-    ~ .img-green {
-      display: block;
-    }
-  }
+  // &:hover {
+  //   display: none;
+  //   cursor: pointer;
+  //   ~ .img-green {
+  //     display: block;
+  //   }
+  // }
 }
 
 /* second box */
@@ -95,9 +98,10 @@ input {
 }
 .progress-bar-cover {
   @include flex-row;
+  display: none;
   justify-content: space-between;
   background: $black;
-  padding: 0.2rem;
+  padding: 0.8rem 0.4rem;
 }
 
 .progress-bar-cover > h3:first-child {
@@ -131,6 +135,7 @@ input {
 
     &:checked + .checkmark {
       background: $green;
+      border: none;
     }
     &:checked + .checkmark::after {
       display: block;

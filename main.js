@@ -12,7 +12,10 @@ const getRangeInput = document.getElementById("length-number"),
   getTooWeak = document.getElementById("too-weak"),
   getWeak = document.getElementById("weak"),
   getMedium = document.getElementById("medium"),
-  getStrong = document.getElementById("strong");
+  getStrong = document.getElementById("strong"),
+  emptyCopy = document.getElementsByClassName("img-empty")[0],
+  greenCopy = document.getElementsByClassName("img-green")[0],
+  checkedText = document.getElementsByClassName("copied-text")[0];
 
 const allLetters = [
   "a",
@@ -52,6 +55,23 @@ getRangeInput.addEventListener("change", (e) => {
   getLengthValue.innerHTML = e.target.value;
   password.length = getLengthValue.innerHTML;
 });
+emptyCopy.addEventListener("mouseover", () => {
+  emptyCopy.style.display = "none";
+  greenCopy.style.display = "block";
+});
+greenCopy.addEventListener("mouseover", () => {
+  emptyCopy.style.display = "none";
+});
+greenCopy.addEventListener("mouseout", () => {
+  greenCopy.style.display = "none";
+  checkedText.style.display = "none";
+  emptyCopy.style.display = "block";
+});
+greenCopy.addEventListener("click", async () => {
+  checkedText.style.display = "block";
+  console.log(navigator.clipboard);
+  await navigator.clipboard.writeText(passwordInput.innerHTML);
+});
 
 //using forEach for all checkboxes to change control false > true
 
@@ -80,9 +100,8 @@ const checkboxControl = {
 const checkBoxTicks = () => {
   const getValues = Object.values(checkboxControl);
   const checkTrue = getValues.filter((truthvalue) => truthvalue === true);
-  console.log("fired");
+
   if (checkTrue.length) {
-    console.log("true");
     return true;
   } else {
     passwordInput.innerHTML = "You need to check one of the boxes!";
@@ -115,13 +134,10 @@ const generateRandomNumber = (max) => {
 };
 let password = [];
 
-console.log(password.length);
-
 checkUniqueSpace = (array, caseName) => {
   const generateArrayNumber = generateRandomNumber(
     getLengthValue.innerHTML - 1
   );
-  console.log(generateArrayNumber);
 
   if (password[generateArrayNumber]) {
     checkUniqueSpace(array, caseName);
@@ -129,7 +145,6 @@ checkUniqueSpace = (array, caseName) => {
     password[generateArrayNumber] =
       array[generateRandomNumber(array.length - 1)].toUpperCase();
   } else {
-    console.log(array);
     password[generateArrayNumber] =
       array[generateRandomNumber(array.length - 1)];
   }
@@ -139,25 +154,20 @@ const stepOne = () => {
     switch (member) {
       case "uppercase":
         checkUniqueSpace(allLetters, "uppercase");
-        console.log("uppercase");
         break;
       case "lowercase":
         checkUniqueSpace(allLetters, "lowercase");
-        console.log("lowercase");
         break;
       case "numbers":
         checkUniqueSpace(allNumbers, "numbers");
-        console.log("num");
         break;
       case "symbols":
         checkUniqueSpace(allSymbols, "symbols");
-        console.log("symbo");
         break;
     }
   });
 };
 const stepTwo = (password) => {
-  console.log(password);
   const arrayHasValue = (arrayValue) => {
     if (arrayValue) {
       return true;
@@ -196,7 +206,7 @@ const stepTwo = (password) => {
       password[i] = password[i];
     }
   }
-  console.log(password);
+
   passwordInput.innerHTML = password.join("");
   return "completed";
 };
@@ -205,10 +215,79 @@ const stepTwo = (password) => {
 
 const strengths = [getTooWeak, getWeak, getMedium, getStrong];
 
+const strengthHandler = () => {
+  //1 box checked
+
+  if (filterTrueKeys().length === 1) {
+    strengths.forEach((strength) => (strength.style.display = "none"));
+
+    getTooWeak.style.display = "flex";
+  }
+
+  //2 boxes checked
+
+  if (filterTrueKeys().length === 2) {
+    if (password.length < 8) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getTooWeak.style.display = "flex";
+    } else if (8 <= password.length && password.length <= 10) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getWeak.style.display = "flex";
+    } else {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getMedium.style.display = "flex";
+    }
+  }
+
+  //3 boxes checked
+  if (filterTrueKeys().length === 3) {
+    if (password.length === 4) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getTooWeak.style.display = "flex";
+    } else if (5 <= password.length && password.length <= 8) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getWeak.style.display = "flex";
+    } else if (8 <= password.length && password.length <= 14) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getMedium.style.display = "flex";
+    } else {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getStrong.style.display = "flex";
+    }
+  }
+
+  //4 boxes checked
+
+  if (filterTrueKeys().length === 4) {
+    if (password.length === 4) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getTooWeak.style.display = "flex";
+    } else if (5 <= password.length && password.length <= 6) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getWeak.style.display = "flex";
+    } else if (6 <= password.length && password.length <= 10) {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getMedium.style.display = "flex";
+    } else {
+      strengths.forEach((strength) => (strength.style.display = "none"));
+
+      getStrong.style.display = "flex";
+    }
+  }
+};
 //generate button is pressed
 
 generateButton.addEventListener("click", () => {
-  console.log("password", password.length);
   if (checkBoxTicks()) {
     password = [];
     password.length = getLengthValue.innerHTML;
@@ -217,4 +296,5 @@ generateButton.addEventListener("click", () => {
 
     stepTwo(password);
   }
+  strengthHandler();
 });

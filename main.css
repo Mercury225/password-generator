@@ -79,23 +79,17 @@ body {
   display: none;
 }
 
+.copied-text {
+  margin-right: 0.4rem;
+}
+
 .img-green:hover {
   display: block;
   cursor: pointer;
 }
 
-.img-empty {
-  display: block;
-}
 .img-empty path {
   fill: #e6e5ea;
-}
-.img-empty:hover {
-  display: none;
-  cursor: pointer;
-}
-.img-empty:hover ~ .img-green {
-  display: block;
 }
 
 /* second box */
@@ -129,9 +123,10 @@ input {
 .progress-bar-cover {
   display: flex;
   flex-direction: row;
+  display: none;
   justify-content: space-between;
   background: #18171f;
-  padding: 0.2rem;
+  padding: 0.8rem 0.4rem;
 }
 
 .progress-bar-cover > h3:first-child {
@@ -171,6 +166,7 @@ input {
 }
 .checkboxes label input:checked + .checkmark {
   background: #a4ffaf;
+  border: none;
 }
 .checkboxes label input:checked + .checkmark::after {
   display: block;
