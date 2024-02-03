@@ -1,7 +1,12 @@
-#Some comments
-- i struggled to change the customise the slider properly
+## Some comments
 
-I tried this: 
+- had a lot of fun doing the password JS code, and thoroughly enjoyed the challenge!
+
+## if you can help on this:
+
+- Wasn't very sure how to customise the slider using the input tag type = range. I wanted to change the color of the slider-thumb to grey but was unsuccessful, if you can help on this please!
+
+I tried this:
 `#length-number {
   background-color: transparent;
   appearance: none;
@@ -14,9 +19,9 @@ I tried this:
 }
 `
 
--webkit-slider-thumb didn't work, but runnable-track did, still it just gave a green background with a blue thumb, which is not what i want 
+-webkit-slider-thumb didn't work, but runnable-track did, still it just gave a green background with a blue thumb, which is not what i want
 
-so i ended up just doing this: 
+so i ended up just doing this:
 `#length-number {
   accent-color: $green;
 }
