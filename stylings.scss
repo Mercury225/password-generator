@@ -29,10 +29,16 @@ body {
   padding: 2rem;
   background: $light-black;
   margin-bottom: 2rem;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
-.grey-box:last-of-type {
-  margin-bottom: 0;
+@media only screen and (max-width: 450px) {
+  .grey-box {
+    width: 21rem;
+  }
 }
+
 .image-collection {
   @include flex-row;
   width: 30%;
