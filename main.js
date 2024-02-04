@@ -51,7 +51,7 @@ const allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const allSymbols = ["!", "£", "$", "%", "^", "&", "*", "(", ")", "@", "/"];
 
-let addedText;
+let addedText = "";
 //event listeners
 getRangeInput.addEventListener("change", (e) => {
   getLengthValue.innerHTML = e.target.value;
